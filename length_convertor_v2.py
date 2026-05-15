@@ -352,6 +352,6 @@ class HistoryExport:
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Temperature Converter")
+    root.title("Length Converter")
     Converter()
     root.mainloop()

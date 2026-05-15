@@ -118,7 +118,7 @@ class Converter:
             answer = cr.to_miles(to_convert)
             answer_statement = f"{to_convert}°C is {answer}°F"
         else:
-            answer = cr.to_celsius(to_convert)
+            answer = cr.to_kilometers(to_convert)
             answer_statement = f"{to_convert} °F is {answer}°C"
 
         # enable history export button as soon as we have a valid calculation
