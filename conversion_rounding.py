@@ -8,23 +8,23 @@ def round_ans(val):
     return "{:.0f}".format(var_rounded)
 
 
-def to_celsius(to_convert):
+def to_kilometers(to_convert):
     """
     Converts from °F to °C
     :param to_convert: Temperature to be converted in °F
     :return:  Converted temperature in °C
     """
-    answer = (to_convert - 32) * 5 / 9
+    answer = (to_convert * 1.609344)
     return round_ans(answer)
 
 
-def to_fahrenheit(to_convert):
+def to_miles(to_convert):
     """
     Converts from °C to °F
     :param to_convert: Temperature to be converted in °C
     :return:  Converted temperature in °F
     """
-    answer = to_convert * 1.8 + 32
+    answer = to_convert * 0.621371
     return round_ans(answer)
 
 
