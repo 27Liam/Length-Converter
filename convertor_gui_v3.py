@@ -56,7 +56,7 @@ class Converter:
         self.to_history_button = self.button_ref_list[3]
 
     def to_celsius(self):
-        print("you pushed the celsius button")
+        print("you pushed the Kilometer button")
 
 
 # main routine
