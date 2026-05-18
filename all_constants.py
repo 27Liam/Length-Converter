@@ -1,5 +1,5 @@
-# constants used to convert lengths...
+# constants used to convert temperatures...
 
-ABS_ZERO_KILOMETERS = 0
-ABS_ZERO_MILES = 0
+ABS_ZERO_CELSIUS = -273
+ABS_ZERO_FAHRENHEIT = -459
 MAX_CALCS = 5
