@@ -78,11 +78,11 @@ class Converter:
 
     def check_length(self, min_length):
         """
-        Checks temperature is valid and either invokes calculation
+        Checks length is valid and either invokes calculation
          function or shows a custom error
         """
 
-        # Retrieve temperature to be converted
+        # Retrieve length to be converted
         to_convert = self.length_entry.get()
 
         # Reset label and entry box (if we had an error)
@@ -111,7 +111,7 @@ class Converter:
 
     def convert(self, min_length, to_convert):
         """
-        Converts temperatures and updates answer label.  Also stores
+        Converts length and updates answer label.  Also stores
         calculations for Export / History feature
         """
 
@@ -319,7 +319,7 @@ class HistoryExport:
         month = today.strftime("%m")
         year = today.strftime("%Y")
 
-        file_name = f"temperatures_{year}_{month}_{day}"
+        file_name = f"lengths_{year}_{month}_{day}"
 
         # edit label so users know that their export has been done
         success_string = ("Export Successful!  The file is called "
@@ -331,7 +331,7 @@ class HistoryExport:
         write_to = f"{file_name}.txt"
 
         with open(write_to, "w") as text_file:
-            text_file.write("***** Temperature Calculations ******\n")
+            text_file.write("***** Length Calculations ******\n")
             text_file.write(f"Generated: {day}/{month}/{year}\n\n")
             text_file.write("Here is your calculation history (oldest to newest)...\n")
 

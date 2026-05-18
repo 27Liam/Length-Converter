@@ -6,21 +6,17 @@ from datetime import date
 
 class Converter:
     """
-    Temperature conversion tool (°C to °F or °F to °C)
+    Length conversion tool
     """
 
     def __init__(self):
         """
-        Temperature converter GUI
+        Length converter GUI
         """
 
-        self.all_calculations_list = ['10.0 °F is -12°C', '20.0 °F is -7°C',
-                                      '30.0 °F is -1°C', '40.0 °F is 4°C',
-                                      '50.0 °F is 10°C', '60.0 °F is 16°C']
+        self.all_calculations_list = ['10m is 16km',
+                                      '50km is 31m', '15km is 9m']
 
-        # self.all_calculations_list = ['10.0 °F is -12°C', '20.0 °F is -7°C',
-        #                               '30.0 °F is -1°C', '40.0 °F is 4°C',
-        #                               '50.0 °F is 10°C']
 
         self.temp_frame = Frame(padx=10, pady=10)
         self.temp_frame.grid()
@@ -147,7 +143,7 @@ class HistoryExport:
         month = today.strftime("%m")
         year = today.strftime("%Y")
 
-        file_name = f"temperatures_{year}_{month}_{day}"
+        file_name = f"Lengths_{year}_{month}_{day}"
 
         # edit label so users know that their export has been done
         success_string = ("Export Successful!  The file is called "
@@ -159,7 +155,7 @@ class HistoryExport:
         write_to = f"{file_name}.txt"
 
         with open(write_to, "w") as text_file:
-            text_file.write("***** Temperature Calculations ******\n")
+            text_file.write("***** Length Calculations ******\n")
             text_file.write(f"Generated: {day}/{month}/{year}\n\n")
             text_file.write("Here is your calculation history (oldest to newest)...\n")
 
@@ -180,6 +176,6 @@ class HistoryExport:
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Temperature Converter")
+    root.title("Length Converter")
     Converter()
     root.mainloop()
