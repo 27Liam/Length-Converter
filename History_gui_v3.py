@@ -14,8 +14,7 @@ class Converter:
         Length converter GUI
         """
 
-        self.all_calculations_list = ['10m is 16km',
-                                      '50km is 31m', '15km is 9m']
+        self.all_calculations_list = ['10m is 16km', '50km is 31m', '15km is 9m']
 
 
         self.temp_frame = Frame(padx=10, pady=10)

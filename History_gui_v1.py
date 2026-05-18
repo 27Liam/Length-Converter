@@ -4,12 +4,12 @@ from functools import partial  # To prevent unwanted windows
 
 class Converter:
     """
-    Temperature conversion tool (°C to °F or °F to °C)
+    Length conversion tool
     """
 
     def __init__(self):
         """
-        Temperature converter GUI
+        Length converter GUI
         """
 
         self.temp_frame = Frame(padx=10, pady=10)
@@ -58,7 +58,7 @@ class HistoryExport:
         # strings for 'long' labels...
         recent_intro_txt = ("Below are your recent calculations - showing "
                             "3 / 3 calculations.  All calculations are "
-                            "shown to the nearest degree")
+                            "shown to the nearest integer")
 
         export_instruction_txt = ("Please push <Export> to save your calculations in a text "
                                   "file.  If the filename already exists, it will be overwritten!")
@@ -116,6 +116,6 @@ class HistoryExport:
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Temperature Converter")
+    root.title("Length Converter")
     Converter()
     root.mainloop()

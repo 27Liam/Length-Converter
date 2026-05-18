@@ -5,7 +5,7 @@ import conversion_rounding as cr
 
 class Converter:
     """
-    Temperature conversion tool (°C to °F or °F to °C)
+    Length conversion tool
     """
 
     def __init__(self):
@@ -18,20 +18,20 @@ class Converter:
         self.length_frame = Frame(padx=10, pady=10)
         self.length_frame.grid()
 
-        self.temp_heading = Label(self.length_frame,
-                                  text="Length converter",
-                                  font=("Arial", "16", "bold")
-                                  )
-        self.temp_heading.grid(row=0)
+        self.length_heading = Label(self.length_frame,
+                                    text="Length converter",
+                                    font=("Arial", "16", "bold")
+                                    )
+        self.length_heading.grid(row=0)
 
         instructions = ("Please enter a length below and then press "
                         "one of the buttons to convert it from kilometers "
                         "to miles.")
-        self.temp_instructions = Label(self.length_frame,
-                                       text=instructions,
-                                       wraplength=250, width=40,
-                                       justify="left")
-        self.temp_instructions.grid(row=1)
+        self.length_instructions = Label(self.length_frame,
+                                         text=instructions,
+                                         wraplength=250, width=40,
+                                         justify="left")
+        self.length_instructions.grid(row=1)
 
         self.length_entry = Entry(self.length_frame,
                                   font=("Arial", "14")

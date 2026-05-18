@@ -5,26 +5,19 @@ import all_constants as c
 
 class Converter:
     """
-    Temperature conversion tool (°C to °F or °F to °C)
+    Length conversion tool
     """
 
     def __init__(self):
         """
-        Temperature converter GUI
+        Length converter GUI
         """
+        self.all_calculations_list = ['10m is 16km', '50km is 31m', '15km is 9m']
 
-        # self.all_calculations_list = ['10.0 °F is -12°C', '20.0 °F is -7°C',
-        #                               '30.0 °F is -1°C', '40.0 °F is 4°C',
-        #                               '50.0 °F is 10°C', '60.0 °F is 16°C']
+        self.length_frame = Frame(padx=10, pady=10)
+        self.length_frame.grid()
 
-        self.all_calculations_list = ['10.0 °F is -12°C', '20.0 °F is -7°C',
-                                      '30.0 °F is -1°C', '40.0 °F is 4°C',
-                                      '50.0 °F is 10°C']
-
-        self.temp_frame = Frame(padx=10, pady=10)
-        self.temp_frame.grid()
-
-        self.to_history_button = Button(self.temp_frame,
+        self.to_history_button = Button(self.length_frame,
                                         text="History / Export",
                                         bg="#CC6600",
                                         fg="#FFFFFF",
@@ -71,7 +64,7 @@ class HistoryExport:
 
         # strings for 'long' labels...
         recent_intro_txt = (f"Below are {calc_amount} calculations "
-                            "(to the nearest degree).")
+                            "(to the nearest integer).")
 
         # Create string from calculations list (newest calculations first)
         newest_first_string = ""
@@ -148,6 +141,6 @@ class HistoryExport:
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Temperature Converter")
+    root.title("Length Converter")
     Converter()
     root.mainloop()

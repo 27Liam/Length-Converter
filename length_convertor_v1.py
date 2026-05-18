@@ -6,52 +6,52 @@ import conversion_rounding as cr
 
 class Converter:
     """
-    Temperature conversion tool (°C to °F or °F to °C)
+    Length conversion tool
     """
 
     def __init__(self):
         """
-        Temperature converter GUI
+        Length converter GUI
         """
 
         self.all_calculations_list = []
 
-        self.temp_frame = Frame(padx=10, pady=10)
-        self.temp_frame.grid()
+        self.length_frame = Frame(padx=10, pady=10)
+        self.length_frame.grid()
 
-        self.temp_heading = Label(self.temp_frame,
-                                  text="Temperature Convertor",
-                                  font=("Arial", "16", "bold")
+        self.length_heading = Label(self.length_frame,
+                                    text="Length Convertor",
+                                    font=("Arial", "16", "bold")
+                                    )
+        self.length_heading.grid(row=0)
+
+        instructions = ("Please enter a distance below and then press "
+                        "one of the buttons to convert it from Kilometers "
+                        "to Miles.")
+        self.length_instructions = Label(self.length_frame,
+                                         text=instructions,
+                                         wraplength=250, width=40,
+                                         justify="left")
+        self.length_instructions.grid(row=1)
+
+        self.length_entry = Entry(self.length_frame,
+                                  font=("Arial", "14")
                                   )
-        self.temp_heading.grid(row=0)
-
-        instructions = ("Please enter a temperature below and then press "
-                        "one of the buttons to convert it from centigrade "
-                        "to Fahrenheit.")
-        self.temp_instructions = Label(self.temp_frame,
-                                       text=instructions,
-                                       wraplength=250, width=40,
-                                       justify="left")
-        self.temp_instructions.grid(row=1)
-
-        self.temp_entry = Entry(self.temp_frame,
-                                font=("Arial", "14")
-                                )
-        self.temp_entry.grid(row=2, padx=10, pady=10)
+        self.length_entry.grid(row=2, padx=10, pady=10)
 
         error = "Please enter a number"
-        self.answer_error = Label(self.temp_frame, text=error,
+        self.answer_error = Label(self.length_frame, text=error,
                                   fg="#004C99", font=("Arial", "12", "bold"))
         self.answer_error.grid(row=3)
 
         # Conversion, help and history / export buttons
-        self.button_frame = Frame(self.temp_frame)
+        self.button_frame = Frame(self.length_frame)
         self.button_frame.grid(row=4)
 
         # button list (button text | bg colour | command | row | column)
         button_details_list = [
-            ["To Celsius", "#990099", lambda: self.check_temp(c.ABS_ZERO_MILES), 0, 0],
-            ["To Fahrenheit", "#009900", lambda: self.check_temp(c.ABS_ZERO_KILOMETERS), 0, 1],
+            ["To Kilometers", "#990099", lambda: self.check_length(c.ABS_ZERO_MILES), 0, 0],
+            ["To Miles", "#009900", lambda: self.check_length(c.ABS_ZERO_KILOMETERS), 0, 1],
             ["Help / Info", "#CC6600", self.to_help, 1, 0],
             ["History / Export", "#004C99", "", 1, 1]
         ]
@@ -75,27 +75,27 @@ class Converter:
         self.to_history_button = self.button_ref_list[3]
         self.to_history_button.config(state=DISABLED)
 
-    def check_temp(self, min_temp):
+    def check_length(self, min_length):
         """
         Checks temperature is valid and either invokes calculation
          function or shows a custom error
         """
 
         # Retrieve temperature to be converted
-        to_convert = self.temp_entry.get()
+        to_convert = self.length_entry.get()
 
         # Reset label and entry box (if we had an error)
         self.answer_error.config(fg="#004C99", font=("Arial", "13", "bold"))
-        self.temp_entry.config(bg="#FFFFFF")
+        self.length_entry.config(bg="#FFFFFF")
 
-        error = f"Enter a number more than / equal to {min_temp}"
+        error = f"Enter a number more than / equal to {min_length}"
         has_errors = "no"
 
         # checks that amount to be converted is a number above absolute zero
         try:
             to_convert = float(to_convert)
-            if to_convert >= min_temp:
-                self.convert(min_temp, to_convert)
+            if to_convert >= min_length:
+                self.convert(min_length, to_convert)
             else:
                 has_errors = "yes"
 
@@ -105,21 +105,21 @@ class Converter:
         # display the error if necessary
         if has_errors == "yes":
             self.answer_error.config(text=error, fg="#9C0000", font=("Arial", "10", "bold"))
-            self.temp_entry.config(bg="#F4CCCC")
-            self.temp_entry.delete(0, END)
+            self.length_entry.config(bg="#F4CCCC")
+            self.length_entry.delete(0, END)
 
-    def convert(self, min_temp, to_convert):
+    def convert(self, min_length, to_convert):
         """
-        Converts temperatures and updates answer label.  Also stores
+        Converts distances and updates answer label.  Also stores
         calculations for Export / History feature
         """
 
-        if min_temp == c.ABS_ZERO_KILOMETERS:
+        if min_length == c.ABS_ZERO_KILOMETERS:
             answer = cr.to_miles(to_convert)
-            answer_statement = f"{to_convert}°C is {answer}°F"
+            answer_statement = f"{to_convert} Kilometers is {answer} Miles"
         else:
             answer = cr.to_kilometers(to_convert)
-            answer_statement = f"{to_convert} °F is {answer}°C"
+            answer_statement = f"{to_convert} Miles is {answer} Kilometers"
 
         # enable history export button as soon as we have a valid calculation
         self.to_history_button.config(state=NORMAL)

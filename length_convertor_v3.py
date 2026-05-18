@@ -7,7 +7,7 @@ from datetime import date
 
 class Converter:
     """
-    Length conversion tool (°C to °F or °F to °C)
+    Length conversion too
     """
 
     def __init__(self):

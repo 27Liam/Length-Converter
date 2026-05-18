@@ -3,7 +3,7 @@ from tkinter import *
 
 class Converter:
     """
-    Converts temperature between degrees C and Fahrenheit
+    Converts distances between kilometers and miles
     """
 
     def __init__(self):
@@ -23,8 +23,8 @@ class Converter:
 
         # label text and row numbers
         label_text_list = [
-            ["Temperature Converter", 0],
-            ["Please enter a temperature below and then press "
+            ["Length Converter", 0],
+            ["Please enter a distance below and then press "
              "the desired button to convert it to Kilometers / Miles", 1],
             ["Please enter a number", 3]
 
@@ -50,8 +50,8 @@ class Converter:
         self.error_label.config(fg="#9C0000")
 
         # Create entry widget
-        self.temp_entry = Entry(self.length_frame, font=font_14)
-        self.temp_entry.grid(row=2, padx=10, pady=10)
+        self.length_entry = Entry(self.length_frame, font=font_14)
+        self.length_entry.grid(row=2, padx=10, pady=10)
 
         # Conversion, help and history / export buttons
         self.button_frame = Frame(self.length_frame)

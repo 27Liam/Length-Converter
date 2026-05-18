@@ -6,29 +6,17 @@ def round_ans(val):
     return "{:.0f}".format(var_rounded)
 
 
-def to_celsius(to_convert):
+def to_kilometers(to_convert):
     """
-    Converts from degrees °F to °C
+    Converts from miles to kilometers
     """
     answer = (to_convert - 32) * 5 / 9
     return round_ans(answer)
 
 
-def to_fahrenheit(to_convert):
+def to_miles(to_convert):
     """
-    Converts from °F to °C
+    Converts from kilometers to miles
     """
     answer = to_convert * 1.8 + 32
     return round_ans(answer)
-
-
-to_c_test = [0, 100, -459]
-to_f_test = [0, 100, 40, -273]
-
-for item in to_f_test:
-    print(f"{item} C is {to_fahrenheit(item)} F")
-
-print()
-
-for item in to_c_test:
-    print(f"{item} F is {to_celsius(item)} C")
