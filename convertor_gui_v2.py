@@ -18,14 +18,14 @@ class Converter:
         button_fg = "#FFFFFF"
 
         # Set up GUI Frame
-        self.temp_frame = Frame(padx=10, pady=10)
-        self.temp_frame.grid()
+        self.length_frame = Frame(padx=10, pady=10)
+        self.length_frame.grid()
 
         # label text and row numbers
         label_text_list = [
             ["Temperature Converter", 0],
             ["Please enter a temperature below and then press "
-             "the desired button to convert it to Celsius / Fahrenheit", 1],
+             "the desired button to convert it to Kilometers / Miles", 1],
             ["Please enter a number", 3]
 
         ]
@@ -35,7 +35,7 @@ class Converter:
 
         # loop makes labels as per labels list
         for item in label_text_list:
-            self.make_label = Label(self.temp_frame, text=item[0])
+            self.make_label = Label(self.length_frame, text=item[0])
             self.make_label.grid(row=item[1])
 
             self.label_ref_list.append(self.make_label)
@@ -50,17 +50,17 @@ class Converter:
         self.error_label.config(fg="#9C0000")
 
         # Create entry widget
-        self.temp_entry = Entry(self.temp_frame, font=font_14)
+        self.temp_entry = Entry(self.length_frame, font=font_14)
         self.temp_entry.grid(row=2, padx=10, pady=10)
 
         # Conversion, help and history / export buttons
-        self.button_frame = Frame(self.temp_frame)
+        self.button_frame = Frame(self.length_frame)
         self.button_frame.grid(row=4)
 
         # button list (label | bg colour | command | row | column)
         button_details_list = [
-            ["To Celsius", "#990099", self.to_celsius, 0, 0],
-            ["To Fahrenheit", "#009900", "", 0, 1],
+            ["To Kilometers", "#990099", self.to_kilometers, 0, 0],
+            ["To Miles", "#009900", "", 0, 1],
             ["Help / Info", "#CC6600", "", 1, 0],
             ["History / Export", "#004C99", "", 1, 1]
         ]
@@ -82,14 +82,14 @@ class Converter:
         # Disable history button at start
         self.to_history_button.config(state=DISABLED)
 
-    # check temperature is more than -459 and convert it
-    def to_celsius(self):
-        print("You pushed to celsius")
+    # check distance is more than 0 and convert it
+    def to_kilometers(self):
+        print("You pushed to Kilometers")
 
 
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Temperature Converter")
+    root.title("Length Converter")
     Converter()
     root.mainloop()

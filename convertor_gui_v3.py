@@ -36,7 +36,7 @@ class Converter:
 
         # button list (label | bg colour | command | row | column)
         button_details_list = [
-            ["To Kilometers", "#990099", self.to_celsius, 0, 0],
+            ["To Kilometers", "#990099", self.to_kilometers, 0, 0],
             ["To Miles", "#009900", "", 0, 1],
             ["Help / Info", "#CC6600", "", 1, 0],
             ["History / Export", "#004C99", "", 1, 1]
@@ -55,13 +55,13 @@ class Converter:
 
         self.to_history_button = self.button_ref_list[3]
 
-    def to_celsius(self):
+    def to_kilometers(self):
         print("you pushed the Kilometer button")
 
 
 # main routine
 if __name__ == "__main__":
     root = Tk()
-    root.title("Temperature Converter")
+    root.title("Length Converter")
     Converter()
     root.mainloop()
